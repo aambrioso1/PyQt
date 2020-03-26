@@ -7,6 +7,13 @@ The GUI was written by me (Alex Ambrioso)
 
 Based on example code for PyQt5:  https://github.com/pyqt/examples/blob/_/src/14%20QAbstractTableModel%20example/main.py
 
+https://github.com/pyqt/examples
+
+
+
+
+
+
 """
 
 # These are the libraries used by the program.
@@ -55,7 +62,10 @@ for i in range(5):
 	pad = d[i]['pad']['location']['name']
 	location = d[i]['pad']['location']['name']
 	date = d[i]['date_str']
-	time = d[i]['win_open'][11:16]
+	if type(d[i]['win_open']) == str:
+		time = d[i]['win_open'][11:16]
+	else:
+		time = "TBA"
 	rows.append((flight, vehicle, provider, pad, date, time))
 
 headers = ['Flight', 'Vehicle', 'Provider', 'Pad', 'Date', 'Time']
